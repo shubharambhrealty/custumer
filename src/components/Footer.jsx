@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="footer-col footer-col-brand">
           <div className="footer-brand-header">
             <img
-              src="/logo.png"
+              src="./logo.png"
               alt="Shubharambh Reality"
               className="footer-logo-img"
             />

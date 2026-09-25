@@ -41,13 +41,13 @@ if ($response && $http_code === 200) {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shubharambh Reality | Lucknow Real Estate & Property Portal</title>
-    <link rel="icon" type="image/png" href="/logo.png" />
+    <link rel="icon" type="image/png" href="./logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
-    <script type="module" crossorigin src="/assets/index-BdHAsfju.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BZfuwBws.css">
+    <script type="module" crossorigin src="./assets/index-DHs0Hik1.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-BZfuwBws.css">
 
     <!-- Server-Side Injected Live Properties Data -->
     <script>

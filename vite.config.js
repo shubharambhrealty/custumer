@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  base: './',
   plugins: [
     react(),
     {
@@ -29,6 +30,9 @@ export default defineConfig({
   ],
   server: {
     port: 3000,
-    open: true
+    open: true,
+    watch: {
+      ignored: ['**/*.zip', '**/dist/**', '**/node_modules/**']
+    }
   }
 });

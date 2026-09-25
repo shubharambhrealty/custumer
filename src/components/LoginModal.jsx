@@ -124,7 +124,7 @@ export default function LoginModal({ isOpen, onClose }) {
         {/* Modal Header */}
         <div className="modal-header-section" style={{ textAlign: 'center' }}>
           <img
-            src="/logo.png"
+            src="./logo.png"
             alt="Shubharambh Reality Logo"
             className="modal-brand-logo"
           />

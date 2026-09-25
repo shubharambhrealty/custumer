@@ -6,7 +6,7 @@ export default function Header({ onOpenLogin }) {
       {/* Official Brand Logo */}
       <a href="#" className="logo-group">
         <img
-          src="/logo.png"
+          src="./logo.png"
           alt="Shubharambh Reality Logo"
           className="brand-logo-img"
         />

@@ -239,7 +239,7 @@ export default function PropertyMap({
         el.innerHTML = `
           <div class="marker-pin-wrapper">
             <div class="marker-pin-circle">
-              <img src="/marker-logo.png" alt="Shubharambh" class="marker-pin-logo" />
+              <img src="./marker-logo.png" alt="Shubharambh" class="marker-pin-logo" />
             </div>
             <div class="marker-pin-tip"></div>
           </div>
