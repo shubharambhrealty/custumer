@@ -48,7 +48,7 @@ if ($response && $http_code === 200) {
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
     <script type="module" crossorigin src="./assets/index-DHs0Hik1.js"></script>
     <link rel="stylesheet" crossorigin href="./assets/index-BZfuwBws.css">
-
+  
     <!-- Server-Side Injected Live Properties Data -->
     <script>
       window.__PROPERTIES_DATA__ = <?php echo json_encode($properties_list); ?>;
