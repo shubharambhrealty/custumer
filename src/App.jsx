@@ -112,20 +112,42 @@ export default function App() {
     });
   };
 
-  // Handle URL route query param ?plot=13 or ?id=13
+  const ensureHomeUrl = (push = false) => {
+    if (typeof window === 'undefined') return;
+    const url = new URL(window.location.href);
+    url.searchParams.delete('plot');
+    url.searchParams.delete('id');
+    url.searchParams.set('android', 'exit');
+    const target = `${url.pathname}?${url.searchParams.toString()}${url.hash}`;
+    if (push) {
+      window.history.pushState({}, '', target);
+    } else if (window.location.search !== '?android=exit') {
+      window.history.replaceState({}, '', target);
+    }
+  };
+
+  // Handle URL route query param ?plot=13 or ?id=13, aur Home page par ?android=exit add karna
   useEffect(() => {
     const syncFromUrl = () => {
-      if (typeof window === 'undefined' || properties.length === 0) return;
+      if (typeof window === 'undefined') return;
       const params = new URLSearchParams(window.location.search);
       const plotId = params.get('plot') || params.get('id');
+
       if (plotId) {
-        const found = properties.find((p) => String(p.plotId) === String(plotId) || String(p.id) === String(plotId));
-        if (found) {
-          setSelectedProperty(found);
-          return;
+        if (properties.length > 0) {
+          const found = properties.find((p) => String(p.plotId) === String(plotId) || String(p.id) === String(plotId));
+          if (found) {
+            setSelectedProperty(found);
+            return;
+          }
+          setSelectedProperty(null);
+          ensureHomeUrl(false);
         }
+        return;
       }
+
       setSelectedProperty(null);
+      ensureHomeUrl(false);
     };
 
     syncFromUrl();
@@ -142,9 +164,7 @@ export default function App() {
 
   const handleBackToMap = () => {
     setSelectedProperty(null);
-    if (typeof window !== 'undefined') {
-      window.history.pushState({}, '', window.location.pathname);
-    }
+    ensureHomeUrl(true);
   };
 
   const handleResetSearch = () => {
@@ -155,7 +175,7 @@ export default function App() {
   return (
     <div className="app-container">
       {/* Top Header */}
-      <Header onOpenLogin={handleOpenLogin} />
+      <Header onOpenLogin={handleOpenLogin} onGoHome={handleBackToMap} />
 
       {/* Main Content */}
       <main>

@@ -46,8 +46,8 @@ if ($response && $http_code === 200) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
-    <script type="module" crossorigin src="./assets/index-DHs0Hik1.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-BZfuwBws.css">
+    <script type="module" crossorigin src="./assets/index-DFS53s-Q.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DEmFVMnd.css">
   
     <!-- Server-Side Injected Live Properties Data -->
     <script>

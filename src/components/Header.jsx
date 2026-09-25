@@ -1,10 +1,18 @@
 import React from 'react';
 
-export default function Header({ onOpenLogin }) {
+export default function Header({ onOpenLogin, onGoHome }) {
+  const handleHomeClick = (e) => {
+    e.preventDefault();
+    if (onGoHome) {
+      onGoHome();
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header className="site-header">
       {/* Official Brand Logo */}
-      <a href="#" className="logo-group">
+      <a href="?android=exit" className="logo-group" onClick={handleHomeClick}>
         <img
           src="./logo.png"
           alt="Shubharambh Reality Logo"
@@ -19,7 +27,7 @@ export default function Header({ onOpenLogin }) {
 
       {/* Navigation Links */}
       <ul className="nav-links">
-        <li><a href="#" className="nav-link active">Home</a></li>
+        <li><a href="?android=exit" className="nav-link active" onClick={handleHomeClick}>Home</a></li>
         <li><a href="#properties-map" className="nav-link">Buy</a></li>
         <li><a href="#properties-map" className="nav-link">Rent</a></li>
         <li><a href="#properties-map" className="nav-link">Projects</a></li>
