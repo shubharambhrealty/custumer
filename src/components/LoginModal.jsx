@@ -20,7 +20,7 @@ export default function LoginModal({ isOpen, onClose }) {
       title: 'Customer Login',
       badge: 'Buyer / Seller / Rent',
       description: 'Search properties, save favorites, list property & contact agents directly',
-      url: 'https://auth.eformx.in/?auth_url=https://shubharambhrealty.eformx.com/custumer&browser=external',
+      url: 'https://auth.eformx.in/?auth_url=https://shubharambhrealty.eformx.com/custumer',
       color: '#0284c7',
       bgLight: '#e0f2fe',
       icon: (
@@ -35,7 +35,7 @@ export default function LoginModal({ isOpen, onClose }) {
       title: 'Sales Manager',
       badge: 'Leads & Bookings',
       description: 'Manage buyer inquiries, site visits, plot sales & agent performance',
-      url: 'https://auth.eformx.in/?auth_url=https://shubharambhrealty.eformx.com/sales-manager&browser=external',
+      url: 'https://auth.eformx.in/?auth_url=https://shubharambhrealty.eformx.com/sales-manager',
       color: '#d97706',
       bgLight: '#fef3c7',
       icon: (
@@ -50,7 +50,7 @@ export default function LoginModal({ isOpen, onClose }) {
       title: 'Staff Login',
       badge: 'Office & Operations',
       description: 'Daily documentation, registry verification, inventory desk & support',
-      url: 'https://auth.eformx.in/?auth_url=https://shubharambhrealty.eformx.com/staff&browser=external',
+      url: 'https://auth.eformx.in/?auth_url=https://shubharambhrealty.eformx.com/staff',
       color: '#4f46e5',
       bgLight: '#e0e7ff',
       icon: (
@@ -65,7 +65,7 @@ export default function LoginModal({ isOpen, onClose }) {
       title: 'Admin Login',
       badge: 'Branch Administration',
       description: 'Property approvals, agent permissions, master leads & branch desk',
-      url: 'https://auth.eformx.in/?auth_url=https://shubharambhrealty.eformx.com/admin&browser=external',
+      url: 'https://auth.eformx.in/?auth_url=https://shubharambhrealty.eformx.com/admin',
       color: '#0f766e',
       bgLight: '#ccfbf1',
       icon: (
@@ -80,7 +80,7 @@ export default function LoginModal({ isOpen, onClose }) {
       title: 'Super Admin',
       badge: 'Full System Authority',
       description: 'Master configuration, multi-branch access, revenue audit & security governance',
-      url: 'https://auth.eformx.in/?auth_url=https://shubharambhrealty.eformx.com/super-admin&browser=external',
+      url: 'https://auth.eformx.in/?auth_url=https://shubharambhrealty.eformx.com/super-admin',
       color: '#7e22ce',
       bgLight: '#f3e8ff',
       icon: (
@@ -94,7 +94,20 @@ export default function LoginModal({ isOpen, onClose }) {
 
   // Redirect using window.location.replace so browser back button does not loop back
   const handleSelectRole = (url) => {
-    window.location.replace(url);
+    let targetUrl = url;
+    try {
+      const isAndroid = typeof window !== 'undefined' &&
+        ((window.Android && typeof window.Android.getDeviceId === 'function' && Boolean(window.Android.getDeviceId())) ||
+         (typeof Android !== 'undefined' && typeof Android.getDeviceId === 'function' && Boolean(Android.getDeviceId())));
+
+      if (isAndroid) {
+        targetUrl += (targetUrl.includes('?') ? '&' : '?') + 'browser=external';
+      }
+    } catch (err) {
+      console.warn('Android device check:', err);
+    }
+
+    window.location.replace(targetUrl);
   };
 
   return (
